@@ -1,13 +1,37 @@
 #include <iostream>
 #include <string>
-#include <map>
 #include <algorithm>
+#include <map>
 
 using namespace std;
 
 
-// Function to convert text into lowercase
-string toLower(string text)
+// ======================================================
+// AI CHATBOT USING MAP
+//
+// PURPOSE:
+// --------
+// Simple rule-based chatbot using map container.
+//
+// FEATURES:
+// ---------
+// - Stores questions and responses using key-value pair
+// - Key   = user keyword
+// - Value = chatbot response
+// - Uses substring matching
+// - Runs until user types exit/bye
+//
+// TIME COMPLEXITY:
+// ----------------
+// O(K * N)
+//
+// K = number of keywords
+// N = length of input string
+// ======================================================
+
+
+
+string toLowerCase(string text)
 {
     transform(text.begin(),
               text.end(),
@@ -18,106 +42,95 @@ string toLower(string text)
 }
 
 
-int main()
+
+string getResponse(string input,
+                   map<string, string>& chatbotData)
 {
-    // Knowledge Base
-    map<string, string> chatbot = {
+    input = toLowerCase(input);
 
-        {"hello",
-         "Hello! How can I help you?"},
+    for(auto pair : chatbotData)
+    {
+        string keyword = pair.first;
 
-        {"hi",
-         "Hello! How can I help you?"},
+        if(input.find(keyword) != string::npos)
+        {
+            return pair.second;
+        }
+    }
 
-        {"admission",
-         "Admissions are open now."},
+    return "Sorry, I did not understand.";
+}
 
-        {"fees",
-         "Please contact office for fee details."},
 
-        {"courses",
-         "We offer C++, Java, Python and AI courses."},
 
-        {"hostel",
-         "Hostel facility is available."},
+void chatbot()
+{
+    map<string, string> chatbotData;
 
-        {"placement",
-         "Many companies visit for placements."},
+    // key = user input keyword
+    // value = chatbot response
 
-        {"library",
-         "Library facility is available."},
+    chatbotData["hello"] =
+        "Hello! How can I help you?";
 
-        {"sports",
-         "Sports facilities are available."},
+    chatbotData["hi"] =
+        "Hi! Welcome to our college.";
 
-        {"help",
-         "You can ask about admission, fees, hostel and courses."},
+    chatbotData["admission"] =
+        "Admissions are currently open.";
 
-        {"thanks",
-         "You are welcome!"},
+    chatbotData["fees"] =
+        "Please visit accounts section for fee details.";
 
-        {"bye",
-         "Thank you for chatting."}
-    };
+    chatbotData["courses"] =
+        "We offer Computer, IT, AI and DS courses.";
+
+    chatbotData["hostel"] =
+        "Hostel facility is available for students.";
+
+    chatbotData["placement"] =
+        "Top companies visit campus every year.";
+
+    chatbotData["bye"] =
+        "Thank you for chatting.";
+
+    chatbotData["exit"] =
+        "Chat closed successfully.";
 
 
     string userInput;
 
-    cout << "=========================="
-         << endl;
-
-    cout << "      AI CHATBOT"
-         << endl;
-
-    cout << "=========================="
-         << endl;
-
-    cout << "Type 'bye' to exit."
-         << endl;
-
+    cout << "=========== AI CHATBOT ===========\n\n";
 
     while(true)
     {
-        cout << "\nYou : ";
+        cout << "You : ";
 
         getline(cin, userInput);
 
-        userInput = toLower(userInput);
+        string response =
+            getResponse(userInput, chatbotData);
 
-        bool found = false;
+        cout << "Bot : "
+             << response
+             << endl;
 
+        string lowerInput =
+            toLowerCase(userInput);
 
-        // Search keywords
-        for(auto pair : chatbot)
+        if(lowerInput == "bye" ||
+           lowerInput == "exit")
         {
-            if(userInput.find(pair.first)
-               != string::npos)
-            {
-                cout << "Bot : "
-                     << pair.second
-                     << endl;
-
-                found = true;
-
-
-                // Exit condition
-                if(pair.first == "bye")
-                {
-                    return 0;
-                }
-
-                break;
-            }
-        }
-
-
-        // Default response
-        if(!found)
-        {
-            cout << "Bot : Sorry, I did not understand."
-                 << endl;
+            break;
         }
     }
+}
+
+
+
+int main()
+{
+    chatbot();
 
     return 0;
 }
