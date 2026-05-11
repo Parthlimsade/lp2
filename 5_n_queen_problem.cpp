@@ -86,3 +86,94 @@ int main()
 
     return 0;
 }
+
+
+// N-Queen Problem Using Backtracking
+
+// This program solves the N-Queen problem using Backtracking.
+
+// Goal:
+
+// Place N queens so that no queens attack each other.
+
+// Board Representation
+// vector<string> board
+
+// Stores chess board.
+
+// Example:
+
+// .Q..
+// ...Q
+// Q...
+// ..Q.
+// isSafe Function
+// isSafe(board,row,col,n)
+
+// Checks whether queen can be placed safely.
+
+// Checks Performed
+// Same Row
+// board[row][j]=='Q'
+// Same Column
+// board[i][col]=='Q'
+// Left Diagonal
+// i-- , j--
+
+// Checks upper-left diagonal.
+
+// Right Diagonal
+// i-- , j++
+
+// Checks upper-right diagonal.
+
+// nqueen Function
+// nqueen(board,row,n,ans)
+
+// Main recursive backtracking function.
+
+// Base Condition
+// if(row==n)
+
+// All queens placed successfully.
+
+// Store solution in ans.
+
+// Loop
+// for(int j=0;j<n;j++)
+
+// Tries every column in current row.
+
+// Place Queen
+// board[row][j]='Q';
+// Recursive Call
+// nqueen(board,row+1,n,ans);
+
+// Moves to next row.
+
+// Backtracking
+// board[row][j]='.';
+
+// Removes queen and tries next possibility.
+
+// solveque Function
+// solveque(n)
+
+// Creates empty board and starts recursion.
+
+// Time Complexity
+
+// Worst Case:
+
+// O(N!)
+
+// Because many queen arrangements are checked.
+
+// Important Points
+// Uses Backtracking
+// Recursive solution
+// One queen per row
+// Checks safe positions only
+// Short Viva Explanation
+
+// “This program solves the N-Queen problem using backtracking. It places queens row by row and checks safe positions using row, column, and diagonal checking.”
