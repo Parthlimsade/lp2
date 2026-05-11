@@ -320,3 +320,84 @@ int main()
 // 1 2 3
 // 4 5 6
 // 7 8 0
+
+// This code solves the 8-puzzle problem using A* algorithm.
+
+// Important Small Explanations
+// state → stores puzzle board
+// x,y → blank position
+// g → cost so far
+// h → heuristic value
+// f() → total cost = g+h
+// Heuristic Function
+// heuristic(state)
+
+// Uses Manhattan Distance.
+
+// Calculates how far tiles are from goal position.
+
+// Smaller heuristic = better state.
+
+// Priority Queue
+// priority_queue<Node> pq;
+
+// Stores puzzle states.
+
+// Best state comes first.
+
+// Goal State
+// 1 2 3
+// 4 5 6
+// 7 8 0
+
+// 0 represents blank space.
+
+// solvePuzzle()
+
+// Main A* function.
+
+// Steps:
+
+// Find blank space
+// Push initial state
+// Generate moves
+// Calculate heuristic
+// Push new states
+// Stop at goal
+// Moves
+// Up
+// Down
+// Left
+// Right
+
+// Blank tile moves in these directions.
+
+// Visited Set
+// set<string> visited;
+
+// Prevents revisiting same states.
+
+// Swap Function
+// swap(...)
+
+// Moves blank tile with adjacent tile.
+
+// Time Complexity
+
+// Worst Case:
+
+// O(b
+// d
+// )
+
+// Where:
+
+// b = branching factor
+// d = depth of solution
+
+// For 8-puzzle, maximum possible states are:
+
+// 9! = 362880
+// Short Viva Answer
+
+// “This program uses A* algorithm with Manhattan Distance heuristic to solve the 8-puzzle problem. Priority queue selects the best puzzle state first until the goal state is reached.”
