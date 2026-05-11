@@ -51,7 +51,7 @@ void dfs(int u, int end,vector<bool>&dis, vector<vector<int>>&l, int V )
     if(u == end)
     {
         cout << "\nEnd vertex found";
-        return;
+        return ;
     }
     for(int v : l[u])
     {
@@ -69,7 +69,6 @@ void dfs1(vector<vector<int>>&l, int V, int str, int end)
     // int u=0;
     dfs(str,end,dis, l, V);
 }
-
 
 
 
@@ -126,7 +125,6 @@ int main()
         cout << "Invalid Choice";
     }
     
-
 
 }
 
