@@ -132,7 +132,21 @@ int main()
 }
 
 
+// enter the vertices : 5
+// enter the edges : 5
 
+// enter the edges :
+// 0 1
+// 0 2
+// 1 3
+// 2 4
+// 3 4
+
+// enter the str no. 0
+// enter the end no. 4
+
+// 1.bfs
+// 2.dfs
 
 
 
