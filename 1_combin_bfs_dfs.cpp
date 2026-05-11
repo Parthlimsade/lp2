@@ -124,8 +124,83 @@ int main()
     else
     {
         cout << "Invalid Choice";
+         
     }
     
 
 
 }
+
+
+
+
+
+
+// Simple Explanation of Code
+
+// This program performs:
+
+// BFS (Breadth First Search)
+// DFS (Depth First Search)
+
+// on a graph.
+
+// Graph Storage
+// vector<vector<int>> l(V);
+
+// Graph stored using adjacency list.
+
+// add() Function
+// add(l,u,v);
+
+// Adds edge between two vertices.
+
+// Because graph is undirected:
+
+// l[u].push_back(v);
+// l[v].push_back(u);
+// BFS
+// bfs(l,V,str,end);
+
+// Uses queue.
+
+// BFS visits nodes level by level.
+
+// Queue
+// queue<int> q;
+
+// Stores vertices.
+
+// Visited Array
+// vector<bool> dis(V,false);
+
+// Avoids revisiting nodes.
+
+// BFS Working
+// Push start node
+// Remove front node
+// Print node
+// Visit neighbors
+// Push unvisited neighbors
+// DFS
+// dfs(str,end,dis,l,V);
+
+// Uses recursion.
+
+// DFS goes deep first.
+
+// DFS Working
+// Mark visited
+// Print node
+// Visit neighbors recursively
+// Important Difference
+// BFS	DFS
+// Uses Queue	Uses Recursion
+// Level-wise	Depth-wise
+// Time Complexity
+// O(V+E)
+
+// Where:
+
+// V = vertices
+// E = edges
